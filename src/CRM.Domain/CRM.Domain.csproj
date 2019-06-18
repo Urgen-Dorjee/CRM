@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <SuppressNetCoreSdkPreviewMessage>true</SuppressNetCoreSdkPreviewMessage>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CRM.Core.Domain\CRM.Core.Domain.csproj" />
+  </ItemGroup>
+
+</Project>
