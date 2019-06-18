@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace CRM.Core.Domain.Services
 {
-    public class InMemory : IMediatorHandler
+    public class InMemoryBusService : IMediatorHandler
     {
         private readonly IMediator _busService;
 
-        public InMemory(IMediator busService)
+        public InMemoryBusService(IMediator busService)
         {
             _busService = busService;
         }

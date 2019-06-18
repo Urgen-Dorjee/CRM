@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CRM.Core.Domain.Base
+namespace CRM.Core.Domain.BaseEntity
 {
     public abstract class Entity<T> : IEquatable<Entity<T>>
     {
