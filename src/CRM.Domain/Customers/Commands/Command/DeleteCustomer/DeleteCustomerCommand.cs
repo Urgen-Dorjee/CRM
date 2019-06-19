@@ -1,8 +1,10 @@
-﻿namespace CRM.Domain.Customers.Commands.Command.DeleteCustomer
+﻿using System;
+
+namespace CRM.Domain.Customers.Commands.Command.DeleteCustomer
 {
     public class DeleteCustomerCommand : CustomerCommand
     {
-        public DeleteCustomerCommand(string id) : base(id)
+        public DeleteCustomerCommand(Guid id) : base(id)
         { }
 
         public override bool IsInValidState()

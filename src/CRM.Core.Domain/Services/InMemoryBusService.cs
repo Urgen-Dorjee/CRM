@@ -19,7 +19,7 @@ namespace CRM.Core.Domain.Services
             return _busService.Publish(message);
         }
 
-        public Task SendCommand<T>(T command) where T : Command
+        public Task SendCommand<T>(T command) where T : CoreCommand
         {
             return _busService.Send(command);
         }

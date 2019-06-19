@@ -51,14 +51,48 @@ namespace CRM.Domain.Customers.Commands.ComandHandlers
             return await Task.FromResult(true);
         }
 
-        public Task<bool> Handle(DeleteCustomerCommand request, CancellationToken cancellationToken)
+        public async Task<bool> Handle(DeleteCustomerCommand request, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            if (!request.IsInValidState())
+            {
+                NotifyValidationErrors(request);
+                return await Task.FromResult(false);
+            }
+            _customerRepository.DeleteCustomer(request.Id);
+            if(await Commit())
+            {
+                await _bus.RaiseEvent(new DeletedCustomerEvent(request.Id));
+            }
+            return await Task.FromResult(true);
         }
 
-        public Task<bool> Handle(UpdateCustomerCommand request, CancellationToken cancellationToken)
+        public async Task<bool> Handle(UpdateCustomerCommand request, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            if (!request.IsInValidState())
+            {
+                NotifyValidationErrors(request);
+                return await Task.FromResult(false);
+            }
+            var customer = new Customer(Guid.NewGuid(), request.CompanyName, request.ContactName,
+                              request.ContactTitle, request.Address, request.City, request.Region,
+                              request.PostalCode, request.Country, request.Phone, request.Fax, request.EmailAddress);
+            var existingCustomer = _customerRepository.GetCustomerByEmailAddress(customer.EmailAddress);
+            if(existingCustomer!=null && existingCustomer.Id != customer.Id)
+            {
+                if (!existingCustomer.Equals(customer))
+                {
+                    await _bus.RaiseEvent(new CRMCoreNotification(request.MessageType, "This email is already registered.."));
+                    return await Task.FromResult(false);
+                }
+            }
+            _customerRepository.UpdateCustomer(customer);
+            if(await Commit())
+            {
+                await _bus.RaiseEvent(new UpdatedCustomerEvent(request.Id, request.CompanyName, request.ContactName,
+                               request.ContactTitle, request.Address, request.City, request.Region,
+                               request.PostalCode, request.Country, request.Phone, request.Fax, request.EmailAddress));
+            }
+            return await Task.FromResult(true);
         }
     }
 }

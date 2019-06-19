@@ -6,7 +6,7 @@ namespace CRM.Core.Domain.Bus
 {
     public interface IMediatorHandler
     {
-        Task SendCommand<T>(T command) where T : Command;
+        Task SendCommand<T>(T command) where T : CoreCommand;
         Task RaiseEvent<T>(T message) where T : Event;
     }
 }
