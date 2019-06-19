@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CRM.Core.Domain.Notifications
 {
-    public abstract class CRMCoreNotificationHandler : INotificationHandler<CRMCoreNotification>
+    public class CRMCoreNotificationHandler : INotificationHandler<CRMCoreNotification>
     {
         private List<CRMCoreNotification> _notification;
         public CRMCoreNotificationHandler()

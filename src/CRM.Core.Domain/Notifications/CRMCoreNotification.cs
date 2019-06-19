@@ -3,7 +3,7 @@ using System;
 
 namespace CRM.Core.Domain.Notifications
 {
-    public abstract class CRMCoreNotification : Event
+    public class CRMCoreNotification : Event
     {
         public Guid NotificationId { get; protected set; }
         public int Version { get; protected set; }

@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="CRM.Domain.Models.Employees.Employee">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEgAEAAoAAAAGRIIAAAAAQAACIABYACAAAAAAACAAg=</HashCode>
+      <FileName>Models\Employees\Employee.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CRM.Domain.Models.Employees.EmployeeTerritory">
+    <Position X="2.5" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAEgCAAAAAAAAAAAAAACAAA=</HashCode>
+      <FileName>Models\Employees\EmployeeTerritory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CRM.Domain.Models.Employees.Region">
+    <Position X="5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAAAAAABAAAAAAAAgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Employees\Region.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CRM.Domain.Models.Employees.Territory">
+    <Position X="7" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAgAAAAAAIAAAAAAUAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Employees\Territory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
