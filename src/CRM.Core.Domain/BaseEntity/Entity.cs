@@ -11,7 +11,6 @@ namespace CRM.Core.Domain.BaseEntity
             if (other == null) return false;
             return this.Equals(other.Id);
         }
-
         public override bool Equals(object obj)
         {
             var compareTo = obj as Entity<T>;

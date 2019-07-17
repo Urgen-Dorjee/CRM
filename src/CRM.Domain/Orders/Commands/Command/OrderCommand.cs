@@ -1,4 +1,5 @@
 ﻿using CRM.Core.Domain.Commands;
+using CRM.Domain.Customers.Commands.Command;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,7 @@ namespace CRM.Domain.Orders.Commands.Command
         public int OrderId { get; private set; }
         public string CustomerId { get; private set; }
         public int? EmployeeId { get; private set; }
+        public int? ShipperId { get; private set; }
         public DateTimeOffset? OrderDate { get; private set; }
         public DateTimeOffset? RequiredDate { get; private set; }
         public DateTimeOffset? ShippedDate { get; private set; }
@@ -24,11 +26,8 @@ namespace CRM.Domain.Orders.Commands.Command
         public string ShipPostalCode { get; private set; }
         public string ShipCountry { get; private set; }
 
-        //public Customer Customer { get; private set; }
-        //public Employee Employee { get; private set; }
-        //public Shipper Shipper { get; private set; }
-        //public ICollection<OrderDetail> OrderDetails { get; private set; }
 
+           
         public OrderCommand(int orderId, string customerId, int? employeeId, DateTimeOffset? orderDate, DateTimeOffset? requireDate,
                     DateTimeOffset? shipDate, int? shipvia, decimal? freight, string shipname,
                     string shipAdd, string shipCity, string shipRegion, string shipPostal, string shipCountry)
@@ -47,6 +46,7 @@ namespace CRM.Domain.Orders.Commands.Command
             ShipRegion = shipRegion;
             ShipPostalCode = shipPostal;
             ShipCountry = shipCountry;
+            
         }
     }
 }
